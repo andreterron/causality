@@ -1,0 +1,14 @@
+{
+  "name": "causality",
+  "version": "0.0.1",
+  "description": "",
+  "type": "module",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Andre Terron <git@terron.me>",
+  "license": "MIT"
+}
