@@ -6,7 +6,8 @@
   "main": "dist/index.js",
   "scripts": {
     "build": "tsc",
-    "test": "jest"
+    "test": "jest",
+    "dev": "jest --watchAll"
   },
   "keywords": [],
   "author": "Andre Terron <git@terron.me>",

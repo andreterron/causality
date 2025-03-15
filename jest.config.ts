@@ -4,8 +4,31 @@
  */
 
 import type { Config } from "jest";
+import { TsJestTransformerOptions } from "ts-jest";
 
 const config: Config = {
+  // A preset that is used as a base for Jest's configuration
+  preset: "ts-jest",
+
+  // Automatically clear mock calls, instances, contexts and results before every test
+  clearMocks: true,
+
+  // Indicates which provider should be used to instrument code for coverage
+  coverageProvider: "v8",
+
+  // A map from regular expressions to paths to transformers
+  transform: {
+    "^.+.tsx?$": [
+      "ts-jest",
+      {
+        // TODO: I don't know why we need to do this.
+        tsconfig: "tsconfig.test.json" /* ts-jest config goes here in Jest */,
+      } satisfies TsJestTransformerOptions,
+    ],
+  },
+
+  // ----------
+
   // All imported modules in your tests should be mocked automatically
   // automock: false,
 
@@ -14,9 +37,6 @@ const config: Config = {
 
   // The directory where Jest should store its cached dependency information
   // cacheDirectory: "/private/var/folders/nj/gyr_m71d3fq8_kz75284xs4w0000gn/T/jest_dx",
-
-  // Automatically clear mock calls, instances, contexts and results before every test
-  clearMocks: true,
 
   // Indicates whether the coverage information should be collected while executing the test
   // collectCoverage: false,
@@ -31,9 +51,6 @@ const config: Config = {
   // coveragePathIgnorePatterns: [
   //   "/node_modules/"
   // ],
-
-  // Indicates which provider should be used to instrument code for coverage
-  coverageProvider: "v8",
 
   // A list of reporter names that Jest uses when writing coverage reports
   // coverageReporters: [
@@ -100,10 +117,6 @@ const config: Config = {
 
   // An enum that specifies notification mode. Requires { notify: true }
   // notifyMode: "failure-change",
-
-  // A preset that is used as a base for Jest's configuration
-  // preset: undefined,
-  preset: "ts-jest",
 
   // Run tests from one or more projects
   // projects: undefined,
@@ -174,9 +187,6 @@ const config: Config = {
 
   // This option allows use of a custom test runner
   // testRunner: "jest-circus/runner",
-
-  // A map from regular expressions to paths to transformers
-  // transform: undefined,
 
   // An array of regexp pattern strings that are matched against all source file paths, matched files will skip transformation
   // transformIgnorePatterns: [
